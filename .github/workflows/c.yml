@@ -13,7 +13,7 @@ jobs:
         path: ./polyxdr
         
     - name: install
-      run: python3 ./polyxdr/setup.py install
+      run: cd ./polyxdr && python3 setup.py install
 
   build:
     runs-on: ubuntu-latest
