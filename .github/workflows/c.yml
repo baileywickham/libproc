@@ -1,0 +1,21 @@
+name: C/C++ CI
+
+on: [push]
+
+jobs:
+  polyxdr:
+    - name: polyxdr
+      uses: actions/checkout@v2
+      with:
+        repository: polysat/polyxdr
+        path: /polyxdr
+      run: python3 /polyxdr/setup.py install
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: make
+      run: make
+
