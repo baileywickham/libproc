@@ -11,13 +11,15 @@ jobs:
       with:
         repository: polysat/polyxdr
         path: ./polyxdr
-        
-    - name: install
-      run: cd ./polyxdr && sudo python3 setup.py install
-    
+
     - name: clone libproc
       uses: actions/checkout@v2
+      with:
+        path: ./libproc
+      
+    - name: install polyxdr
+      run: cd ./polyxdr && sudo python3 setup.py install
     
     - name: make
-      run: make
+      run: cd ./libproc && make
 
