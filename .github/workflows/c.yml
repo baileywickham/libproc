@@ -13,9 +13,9 @@ jobs:
         path: ./polyxdr
         
     - name: install
-      run: cd ./polyxdr && sudo python3 setup.py install && cd ..
+      run: cd ./polyxdr && sudo python3 setup.py install
     
-    - name: clone 
+    - name: clone libproc
       uses: actions/checkout@v2
     
     - name: make
