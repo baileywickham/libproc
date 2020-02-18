@@ -3,23 +3,21 @@ name: libproc
 on: [push]
 
 jobs:
-  polyxdr:
+  build:
     runs-on: ubuntu-latest
     steps:
-    - name: clone
+    - name: clone polyxdr
       uses: actions/checkout@v2
       with:
         repository: polysat/polyxdr
         path: ./polyxdr
         
     - name: install
-      run: cd ./polyxdr && sudo python3 setup.py install
-
-  build:
-    runs-on: ubuntu-latest
-    needs: [polyxdr]
-    steps:
-    - uses: actions/checkout@v2
+      run: cd ./polyxdr && sudo python3 setup.py install && cd ..
+    
+    - name: clone 
+      uses: actions/checkout@v2
+    
     - name: make
       run: make
 
